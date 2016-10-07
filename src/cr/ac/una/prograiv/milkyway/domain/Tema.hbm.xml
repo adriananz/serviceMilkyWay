@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 7, 2016 8:30:22 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.ac.una.prograiv.milkyway.domain.Tema" table="tema" catalog="mydb" optimistic-lock="version">
+        <id name="idTema" type="int">
+            <column name="idTema" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="categoriaByCategoriaIdCategoria" class="cr.ac.una.prograiv.milkyway.domain.Categoria" fetch="select">
+            <column name="categoria_idCategoria" not-null="true" />
+        </many-to-one>
+        <many-to-one name="categoriaByIdCategoria" class="cr.ac.una.prograiv.milkyway.domain.Categoria" fetch="select">
+            <column name="idCategoria" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="tipo" length="45" />
+        </property>
+        <property name="observaciones" type="string">
+            <column name="observaciones" length="1000" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="45" />
+        </property>
+        <property name="foto" type="string">
+            <column name="foto" length="1000" />
+        </property>
+        <property name="precioMinuto" type="java.lang.Integer">
+            <column name="precio_minuto" />
+        </property>
+        <set name="expertostemas" table="expertostema" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tema_idTema1" not-null="true" />
+            </key>
+            <one-to-many class="cr.ac.una.prograiv.milkyway.domain.Expertostema" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 7, 2016 8:30:22 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.ac.una.prograiv.milkyway.domain.Factura" table="factura" catalog="mydb" optimistic-lock="version">
+        <composite-id name="id" class="cr.ac.una.prograiv.milkyway.domain.FacturaId">
+            <key-property name="idFactura" type="int">
+                <column name="idFactura" />
+            </key-property>
+            <key-property name="estado" type="string">
+                <column name="estado" length="45" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="consulta" class="cr.ac.una.prograiv.milkyway.domain.Consulta" fetch="select">
+            <column name="Consulta_idConsulta" not-null="true" />
+        </many-to-one>
+        <property name="totalConsulta" type="int">
+            <column name="total_consulta" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 7, 2016 8:30:22 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.ac.una.prograiv.milkyway.domain.Chat" table="chat" catalog="mydb" optimistic-lock="version">
+        <id name="idChat" type="int">
+            <column name="idChat" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="consulta" class="cr.ac.una.prograiv.milkyway.domain.Consulta" fetch="select">
+            <column name="Consulta_idConsulta" not-null="true" />
+        </many-to-one>
+        <property name="mensaje" type="string">
+            <column name="mensaje" length="45" />
+        </property>
+        <property name="horaEnvio" type="timestamp">
+            <column name="hora_envio" length="19" />
+        </property>
+        <property name="enviadoPor" type="string">
+            <column name="enviado_por" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

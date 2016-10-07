@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 7, 2016 8:30:22 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.ac.una.prograiv.milkyway.domain.Expertostema" table="expertostema" catalog="mydb" optimistic-lock="version">
+        <id name="idExpertosTema" type="int">
+            <column name="idExpertosTema" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tema" class="cr.ac.una.prograiv.milkyway.domain.Tema" fetch="select">
+            <column name="tema_idTema1" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="cr.ac.una.prograiv.milkyway.domain.Usuario" fetch="select">
+            <column name="usuario_idUsuario1" not-null="true" />
+        </many-to-one>
+        <property name="usuarioIdUsuario" type="int">
+            <column name="usuario_idUsuario" not-null="true" />
+        </property>
+        <property name="temaIdTema" type="int">
+            <column name="tema_idTema" not-null="true" />
+        </property>
+        <set name="consultas" table="consulta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ExpertosTema_idExpertosTema" not-null="true" />
+            </key>
+            <one-to-many class="cr.ac.una.prograiv.milkyway.domain.Consulta" />
+        </set>
+    </class>
+</hibernate-mapping>

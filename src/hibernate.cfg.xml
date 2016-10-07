@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mydb</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    <!--SQL Dialect-->
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <mapping resource="cr/ac/una/prograiv/milkyway/domain/Usuario.hbm.xml"/>
+    <mapping resource="cr/ac/una/prograiv/milkyway/domain/Categoria.hbm.xml"/>
+    <mapping resource="cr/ac/una/prograiv/milkyway/domain/Factura.hbm.xml"/>
+    <mapping resource="cr/ac/una/prograiv/milkyway/domain/Consulta.hbm.xml"/>
+    <mapping resource="cr/ac/una/prograiv/milkyway/domain/Chat.hbm.xml"/>
+    <mapping resource="cr/ac/una/prograiv/milkyway/domain/Expertostema.hbm.xml"/>
+    <mapping resource="cr/ac/una/prograiv/milkyway/domain/Tema.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

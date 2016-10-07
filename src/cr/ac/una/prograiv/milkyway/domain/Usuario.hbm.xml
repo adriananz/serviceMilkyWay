@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 7, 2016 8:30:22 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.ac.una.prograiv.milkyway.domain.Usuario" table="usuario" catalog="mydb" optimistic-lock="version">
+        <id name="idUsuario" type="int">
+            <column name="idUsuario" />
+            <generator class="assigned" />
+        </id>
+        <property name="contrasena" type="string">
+            <column name="contrasena" length="45" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <property name="fechaNac" type="date">
+            <column name="fecha_nac" length="10" />
+        </property>
+        <property name="dirreccion" type="string">
+            <column name="dirreccion" length="45" />
+        </property>
+        <property name="telTrabajo" type="string">
+            <column name="tel_trabajo" length="45" />
+        </property>
+        <property name="telCelular" type="string">
+            <column name="tel_celular" length="45" />
+        </property>
+        <property name="estado" type="java.lang.Boolean">
+            <column name="estado" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="tipo" length="45" />
+        </property>
+        <set name="expertostemas" table="expertostema" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="usuario_idUsuario1" not-null="true" />
+            </key>
+            <one-to-many class="cr.ac.una.prograiv.milkyway.domain.Expertostema" />
+        </set>
+        <set name="consultas" table="consulta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="usuario_idUsuario1" not-null="true" />
+            </key>
+            <one-to-many class="cr.ac.una.prograiv.milkyway.domain.Consulta" />
+        </set>
+    </class>
+</hibernate-mapping>
